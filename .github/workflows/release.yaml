@@ -44,4 +44,4 @@ jobs:
 
       - name: Sign artifacts with Cosign
         run: |
-          cosign sign --yes ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+          cosign sign --yes ghcr.io/${{ github.repository }}/secret:${{ github.ref_name }}
