@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout:v4.2.2
+        uses: actions/checkout@v4.2.2
 
       - name: Install Helm
-        uses: azure/setup-helm:v4.3.0
+        uses: azure/setup-helm@v4.3.0
 
       - name: Install Cosign
-        uses: sigstore/cosign-installer:v3.8.2
+        uses: sigstore/cosign-installer@v3.8.2
 
       - name: Authenticate with GitHub Container Registry
-        uses: docker/login:v3.4.0
+        uses: docker/login@v3.4.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
