@@ -4,7 +4,7 @@ Super simple [OCI](https://helm.sh/blog/storing-charts-in-oci) [Helm](https://he
 
 It's signed by [cosign](https://github.com/sigstore/cosign?tab=readme-ov-file#readme) and is available through the [GitHub Container Registry](https://github.com/p3lim/secret-chart/pkgs/container/secret-chart%2Fsecret).
 
-See [values.yaml](https://github.com/p3lim/secret-chart/blob/master/chart/secret/values.yaml) for the available options, they mirror the [Secrets v1 specification](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#secret-v1-core).
+See [values.yaml](https://github.com/p3lim/secret-chart/blob/master/charts/secret/values.yaml) for the available options, they mirror the [Secrets v1 specification](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#secret-v1-core).
 
 Example usage with Helm:
 
