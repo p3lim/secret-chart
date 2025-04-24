@@ -1,0 +1,42 @@
+name: Release chart
+
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout:v4.2.2
+
+      - name: Install Helm
+        uses: azure/setup-helm:v4.3.0
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer:v3.8.2
+
+      - name: Authenticate with GitHub Container Registry
+        uses: docker/login:v3.4.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Replace version value in Chart manifest
+        run: |
+          sed -i 's/REPLACE_VERSION/${{ github.ref_name }}/' charts/secret/Chart.yaml
+
+      - name: Package chart
+        run: |
+          helm package charts/secret/
+
+      - name: Push chart
+        run: |
+          helm push *.tgz oci://ghcr.io/${{ github.repository }}
+
+      - name: Sign artifacts with Cosign
+        run: |
+          cosign sign --yes ghcr.io/${{ github.repository }}:${{ github.ref_name }}
