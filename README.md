@@ -1,6 +1,6 @@
 # Secret Chart
 
-Super simple [OCI](https://helm.sh/blog/storing-charts-in-oci) [Helm](https://helm.sh/) [Chart](https://helm.sh/docs/topics/charts/) to deploy a single secret.
+Super simple [OCI](https://helm.sh/blog/storing-charts-in-oci) [Helm](https://helm.sh/) [Chart](https://helm.sh/docs/topics/charts/) to deploy a single [Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 It's signed by [cosign](https://github.com/sigstore/cosign?tab=readme-ov-file#readme) and is available through the [GitHub Container Registry](https://github.com/p3lim/secret-chart/pkgs/container/secret-chart%2Fsecret).
 
